@@ -117,41 +117,39 @@ head {
  ============================================================================================================
 */
 
-/* video background */
+/*
+ ============================================================================================================
+ + Backgound => Video
+ ============================================================================================================
+*/
+
 #background-video {
-  height: 100vh;
-  width: 100vw;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-}
 
-/* page content */
-h1, h2 {
-  color: white;
-  font-family: Trebuchet MS;
-  font-weight: bold;
-  text-align: center;
-}
+	height: 100vh;
+	width: 100vw;
+	object-fit: cover;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
 
-h1 {
-  font-size: 6rem;
-  margin-top: 30vh; 
-}
+} // [ + ] Background => Video
 
-h2 { font-size: 3rem; }
+/*
+ ============================================================================================================
+ + Media
+ ============================================================================================================
+*/
 
-@media (max-width: 750px) {
-    #background-video { display: none; }
-    body {
-      background: url("../Video/Background/Background_1.mp4") no-repeat;
-      background-size: cover;
-    }
-}
+@media (
+	max-width: 750px) {
+
+	#background-video {
+		display: none;
+
+} /* [ + ] Media => Background => Video => Maximum Width, Display
 
 /*
  ============================================================================================================
@@ -159,41 +157,27 @@ h2 { font-size: 3rem; }
  ============================================================================================================
 */
 
-//body {
+body {
 
 /*
  ============================================================================================================
- + Body => Background => Color/Image
+ + Body => Background = > Video :: File
  ============================================================================================================
 */
 
-	//background: #555555 url(../Video/Background/Background_1.mp4?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION);
+	background: url("../Video/Background/Background_1.mp4?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_VIDEO_RANDOM_STRING_GENERATION") no-repeat;
 
 /*
  ============================================================================================================
- + Body => Background => Repeat
+ + Body => Background => Video => Size
  ============================================================================================================
 */
 
-	//background-size: cover;
+	background-size: cover;
 
-/*
- ============================================================================================================
- + Body => Background => Repeat
- ============================================================================================================
-*/
+} /* [ + ] Media => Background :: Video :: File */
 
-	//background-repeat: no-repeat;
-
-/*
- ============================================================================================================
- + Body => Background => Attachment
- ============================================================================================================
-*/
-
-	//background-attachment: fixed;
-
-//} /* [ + ] Body */
+} /* [ + ] Body */
 
 /*
  ============================================================================================================
