@@ -20,10 +20,10 @@
  + -				 : Style.css
  + - This File, Version		 : 0.7.1
  + - This File, Programming Code : Pure Pre-Hyper-Text-Post-Processor
- + - Programming Code Model	 : Procedural, Functional, Object Oriented :: Pre-Order Algebraic
- + -				 :					   :: Pre-Order Logical
- + - Compatibility		 : Pre-Hyper-Text-Post-Processor 	   :: Version Numbers: 5, 7, 8
- + -				 : Zend Engine				   :: Version Numbers: 3, 4
+ + - Programming Code Model	 : Procedural, Functional, Object Oriented => Pre-Order Algebraic
+ + -				 :					   => Pre-Order Logical
+ + - Compatibility		 : Pre-Hyper-Text-Post-Processor 	   => Version Numbers: 5, 7, 8
+ + -				 : Zend Engine				   => Version Numbers: 3, 4
  + - Official Release Date	 : Wednesday, November 1st of 2023
  + ----------------------------------------------------------------------------------------------------------
  + -------------------------------------------------------------------------------	- Nyx -
@@ -47,7 +47,7 @@
  ============================================================================================================
  +
  +
- + Theme: 2024_California_Beach_Blue_Animated :: Cascading Style Sheet
+ + Theme: 2024_California_Beach_Blue_Animated => Cascading Style Sheet
  +
  +
  ============================================================================================================
@@ -56,7 +56,7 @@
 /*
  ============================================================================================================
  +
- + Cascading Style Sheet :: Configuration Settings
+ + Cascading Style Sheet => Configuration Settings
  +
  ============================================================================================================
 */
@@ -100,7 +100,7 @@ html {
 /*
  ============================================================================================================
  +
- + Document ::  Head
+ + Document =>  Head
  +
  ============================================================================================================
 */
@@ -112,7 +112,7 @@ head {
 /*
  ============================================================================================================
  +
- + Document :: Body
+ + Document => Body
  +
  ============================================================================================================
 */
@@ -161,7 +161,7 @@ body {
 
 /*
  ============================================================================================================
- + Body => Background = > Video :: File
+ + Body => Background = > Video => File
  ============================================================================================================
 */
 
@@ -175,7 +175,7 @@ body {
 
 	background-size: cover;
 
-} /* [ + ] Media => Background :: Video :: File */
+} /* [ + ] Media => Background => Video => File */
 
 } /* [ + ] Body */
 
@@ -218,7 +218,7 @@ table, tr {
 /*
  ============================================================================================================
  +
- + Document :: Body :: Table Data Cell
+ + Document => Body => Table Data Cell
  +
  ============================================================================================================
 */
@@ -254,14 +254,14 @@ td {
 /*
  ============================================================================================================
  +
- + Document :: Body :: Table Data Cell
+ + Document => Body => Table Data Cell
  +
  ============================================================================================================
 */
 
 /*
  ============================================================================================================
- + Table Data Cell => Application Panels :: Background Images
+ + Table Data Cell => Application Panels => Background Images
  ============================================================================================================
 */
 
@@ -274,7 +274,7 @@ td.MI9 { background-image: url('../Image/Application/9.png?$_GLOBAL_SYSTEM_SECUR
 
 /*
  ============================================================================================================
- + Table Data Cell => Application Modules :: Background Images
+ + Table Data Cell => Application Modules => Background Images
  ============================================================================================================
 */
 
@@ -288,7 +288,7 @@ td.BI9 { background-image: url('../Image/Panel/9.png?$_GLOBAL_SYSTEM_SECURITY_CA
 /*
  ============================================================================================================
  +
- + Document :: Body :: Buttons
+ + Document => Body => Buttons
  +
  ============================================================================================================
 */
@@ -808,7 +808,7 @@ img:hover {
 
 /*
  ============================================================================================================
- + Image :: Hover => Opacity
+ + Image => Hover => Opacity
  ============================================================================================================
 */
 
@@ -816,7 +816,7 @@ img:hover {
 
 /*
  ============================================================================================================
- + Image :: Hover => Filter
+ + Image => Hover => Filter
  ============================================================================================================
 */
 
@@ -826,7 +826,7 @@ img:hover {
 
 /*
  ============================================================================================================
- + Image :: Application Module :: News Article Entries => Image => Author
+ + Image => Application Module => News Article Entries => Image => Author
  ============================================================================================================
 */
 
@@ -834,11 +834,11 @@ img.AMMNewsImage {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: News Article Entries :: Image :: Author */
+} /* [ + ] Image => Application Module => News Article Entries => Image => Author */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Register => Image => Account Recovery Pictographs
+ + Image => Application Module => Register => Image => Account Recovery Pictographs
  ============================================================================================================
 */
 
@@ -846,11 +846,11 @@ img.AMMRegisterPictograph {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Register :: Image :: Account Recovery Pictographs */
+} /* [ + ] Image => Application Module => Register => Image => Account Recovery Pictographs */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Article Entries => Image => Author
+ + Image => Application Module => Article Entries => Image => Author
  ============================================================================================================
 */
 
@@ -858,11 +858,11 @@ img.AMMArticlesImage {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Article Entries :: Image :: Author */
+} /* [ + ] Image => Application Module => Article Entries => Image => Author */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Legal => Theme => Image => Author
+ + Image => Application Module => Legal => Theme => Image => Author
  ============================================================================================================
 */
 
@@ -870,11 +870,11 @@ img.LegalImageAuthor {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Legal :: Theme :: Image :: Author */
+} /* [ + ] Image => Application Module => Legal => Theme => Image => Author */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Messenger => Registered Member Account Profile Picture
+ + Image => Application Module => Messenger => Registered Member Account Profile Picture
  ============================================================================================================
 */
 
@@ -882,11 +882,11 @@ img.MessengerImageMemberProfile {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Messenger :: Registered Member Account Profile Picture */
+} /* [ + ] Image => Application Module => Messenger => Registered Member Account Profile Picture */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Messenger => Message With Image
+ + Image => Application Module => Messenger => Message With Image
  ============================================================================================================
 */
 
@@ -894,11 +894,11 @@ img.MessengerImageMessage {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Messenger :: Message With Image */
+} /* [ + ] Image => Application Module => Messenger => Message With Image */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: List :: Images => Avatars
+ + Image => Application Module => List => Images => Avatars
  ============================================================================================================
 */
 
@@ -906,11 +906,11 @@ img.ListImageAvatar {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: List :: Images :: Avatars */
+} /* [ + ] Image => Application Module => List => Images => Avatars */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Profile => Streams => Stream Image
+ + Image => Application Module => Profile => Streams => Stream Image
  ============================================================================================================
 */
 
@@ -918,11 +918,11 @@ img.StreamImageMessage {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Profile => Streams :: Streams :: Stream Image */
+} /* [ + ] Image => Application Module => Profile => Streams => Streams => Stream Image */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Active Registered Member Accounts :: Registered Member Account Profile Picture
+ + Image => Application Module => Active Registered Member Accounts => Registered Member Account Profile Picture
  ============================================================================================================
 */
 
@@ -930,11 +930,11 @@ img.ActiveMemberAccounts {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Active Registered Member Accounts :: Registered Member Account Profile Picture */
+} /* [ + ] Image => Application Module => Active Registered Member Accounts => Registered Member Account Profile Picture */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Registered Member Account Directory => Registered Member Account Profile Picture
+ + Image => Application Module => Registered Member Account Directory => Registered Member Account Profile Picture
  ============================================================================================================
 */
 
@@ -942,11 +942,11 @@ img.MemberDirectory {
 
   border-radius: 20%;
 
-} /* [ + ] Image :: Application Module :: Registered Member Accounts Directory :: Registered Member Account Profile Picture */
+} /* [ + ] Image => Application Module => Registered Member Accounts Directory => Registered Member Account Profile Picture */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Registered Member Account => Member Panel
+ + Image => Application Module => Registered Member Account => Member Panel
  ============================================================================================================
 */
 
@@ -954,11 +954,11 @@ img.MemberPanel {
 
   border-radius: 10%;
 
-} /* [ + ] Image :: Application Module :: Registered Member Account :: Member Panel */
+} /* [ + ] Image => Application Module => Registered Member Account => Member Panel */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Registered Member Account Profile => Registered Member Account Profile Picture
+ + Image => Application Module => Registered Member Account Profile => Registered Member Account Profile Picture
  ============================================================================================================
 */
 
@@ -966,11 +966,11 @@ img.MemberProfile {
 
   border-radius: 10%;
 
-} /* [ + ] Image :: Application Module :: Registered Member Account Profile :: Registered Member Account Profile Picture */
+} /* [ + ] Image => Application Module => Registered Member Account Profile => Registered Member Account Profile Picture */
 
 /*
  ============================================================================================================
- + Image :: Application Module :: Search => Registered Member Account :: Registered Member Account Profile Picture
+ + Image => Application Module => Search => Registered Member Account => Registered Member Account Profile Picture
  ============================================================================================================
 */
 
@@ -978,11 +978,11 @@ img.SearchMemberProfile {
 
   border-radius: 10%;
 
-} /* [ + ] Image :: Application Module :: Search :: Registered Member Account :: Registered Member Account Profile Picture */
+} /* [ + ] Image => Application Module => Search => Registered Member Account => Registered Member Account Profile Picture */
 
 /*
  ============================================================================================================
- + Image :: Forum :: Message :: Author
+ + Image => Forum => Message => Author
  ============================================================================================================
 */
 
@@ -990,11 +990,11 @@ img.AMAForumTMAuthor {
 
   border-radius: 10%;
 
-} /* [ + ] Image :: Forum :: Topic :: Mesage :: Author */
+} /* [ + ] Image => Forum => Topic => Mesage => Author */
 
 /*
  ============================================================================================================
- + Image :: Application Panel :: Project_Badges => Project Badges
+ + Image => Application Panel => Project_Badges => Project Badges
  ============================================================================================================
 */
 
@@ -1002,11 +1002,11 @@ img.PanelProjectBadge {
 
   border-radius: 10%;
 
-} /* [ + ] Image :: Application Module :: Search :: Registered Member Account :: Registered Member Account Profile Picture */
+} /* [ + ] Image => Application Module => Search => Registered Member Account => Registered Member Account Profile Picture */
 
 /*
  ============================================================================================================
- + Image :: Theme :: Banner
+ + Image => Theme => Banner
  ============================================================================================================
 */
 
@@ -1014,11 +1014,11 @@ img.ThemeBanner {
 
   border-radius: 5%;
 
-} /* [ + ] Image :: Theme :: Banner */
+} /* [ + ] Image => Theme => Banner */
 
 /*
  ============================================================================================================
- + Image :: Registered Member Account :: Control Panel :: Icons
+ + Image => Registered Member Account => Control Panel => Icons
  ============================================================================================================
 */
 
@@ -1026,11 +1026,11 @@ img.AMMControlPanel {
 
   border-radius: 10%;
 
-} /* [ + ] Image :: Registered Member Account :: Control Panel :: Icons */
+} /* [ + ] Image => Registered Member Account => Control Panel => Icons */
 
 /*
  ============================================================================================================
- + Image :: Administration Account :: Control Panel :: Icons
+ + Image => Administration Account => Control Panel => Icons
  ============================================================================================================
 */
 
@@ -1038,7 +1038,7 @@ img.AMAControlPanel {
 
   border-radius: 10%;
 
-} /* [ + ] Image :: Registered Member Account :: Control Panel :: Icons */
+} /* [ + ] Image => Registered Member Account => Control Panel => Icons */
 
 /*
  ============================================================================================================
