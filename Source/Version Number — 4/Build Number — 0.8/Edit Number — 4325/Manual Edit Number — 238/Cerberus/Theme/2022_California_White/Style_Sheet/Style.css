@@ -1,32 +1,34 @@
+<?php
 /*
  ============================================================================================================
  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  + Cerberus Content Management System
  + ----------------------------------------------------------------------------------------------------------
- + - Author			 : Gary Christopher Johnson of Rosedale In Southern California, U.S.A.
- + - Company			 : Tinke Software, Free and Open Source Software
- + - Company Address		 : Rosedale In Southern California, United States of America
- + - Electronic Mail Address	 : CerberusCMS@Protonmail.com, TinkeSoftware@Protonmail.com
+ + - Author			 : Gary Christopher Johnson of Oildale and SouthGate In Southern California
+ + - Company			 : CerberusCMS, Free and Open Source Software
+ + - Company Address		 : Oildale In Southern California, United States of America
+ + - Electronic Mail Address	 : CerberusCMS2@Proton.me
  + - Document Notes		 : View this file in a non-formatting text editor without word-wrap for the
  +				 : correct display of this programming code and its indentation.
  + ----------------------------------------------------------------------------------------------------------
- +    ()    () - -
- +  ()  () ()()()()
- +  ------
- +
+ +    () ()()() --- ()
+ +  ()  () () ()()()
+ +  ------------------------------
+ +  Administration-Level Application Module
  + ----------------------------------------------------------------------------------------------------------
- + - This File, Location	 : Root Directory => Theme => 2022_California_White => Style_Sheet
- + -				 : Style.css
- + - This File, Version		 : 0.7.1
+ + - This File, Location	 : Root Directory => Applications => Administration => PlugIns
+ + - This File, Version		 : 0.7.2
  + - This File, Programming Code : Pure Pre-Hyper-Text-Post-Processor
  + - Programming Code Model	 : Procedural, Functional, Object Oriented :: Pre-Order Algebraic
  + -				 :					   :: Pre-Order Logical
+ + - Compatibility		 : Extensible-Markup-Language		   :: Version Numbers: 1, 1.1
+ + - Compatibility		 : Hyper-Text-Markup-Language		   :: Version Numbers: 1, 2, 3, 4, 5
  + - Compatibility		 : Pre-Hyper-Text-Post-Processor 	   :: Version Numbers: 5, 7, 8
- + -				 : Zend Engine				   :: Version Numbers: 3, 4
- + - Official Release Date	 : Wednesday, November 1st of 2023
+ + - Compatibility		 : Zend Engine				   :: Version Numbers: 3, 4
+ + - Official Release Date	 : Wednesday, January 31st of 2024
  + ----------------------------------------------------------------------------------------------------------
- + -------------------------------------------------------------------------------	- Nyx -
+ + -------------------------------------------------------------------------------	 - Nyx -
  + --[][]--[][][]--[][][]--[][][]---[][][]--[][][]--[]--[]------[][][]------------   []++++||=======>
  + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]----------------
  + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]----------------    |'-._/\_.-'|
@@ -39,7 +41,7 @@
  + --[][]--[][][]--[]--[]--[][][]---[][][]--[]--[]--[][][]--[][][]------------\-/-	 '.[].'
  + -------------------------------------------------------------------------------
  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Build Number: 0.8 - Final
- + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Edit Number : 3,419
+ + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Edit Number : 4,325
  ============================================================================================================
 */
 
@@ -47,7 +49,19 @@
  ============================================================================================================
  +
  +
- + Theme: 2022_California_White :: Cascading Style Sheet
+ +
+ + [ ^ ] Application Module :: Administration :: Plug-Ins
+ +
+ +
+ +
+ ============================================================================================================
+*/
+
+/*
+ ============================================================================================================
+ +
+ +
+ + [ @ ] Application Module :: Administration :: Plug-Ins :: Variables
  +
  +
  ============================================================================================================
@@ -56,1001 +70,265 @@
 /*
  ============================================================================================================
  +
- + Cascading Style Sheet :: Configuration Settings
+ + Application Module :: Administration :: Plug-Ins :: Variables :: POST Variables
  +
  ============================================================================================================
 */
 
 /*
  ============================================================================================================
- +
- + Hyper-Text-Markup-Language, Scrollbar(s)
- +
+ + System :: Directory :: Find and Open :: Plug-In :: Archive
  ============================================================================================================
 */
 
-html {
+$_Application_Module_Administration_PlugIns_FIND_DIRECTORY_UPLOAD_PLUGINS_ARCHIVE_PACKAGE	= "./System/Plug-Ins/Archive/Package/";
+$_Application_Module_Administration_PlugIns_OPEN_DIRECTORY_UPLOAD_PLUGINS_ARCHIVE_PACKAGE	= opendir($_Application_Module_Administration_PlugIns_FIND_DIRECTORY_UPLOAD_PLUGINS_ARCHIVE_PACKAGE);
 
 /*
  ============================================================================================================
- + Hyper-Text-Markup-Language => Font Family
+ + System :: Directory :: Upload :: Plug-In :: Archive :: File
  ============================================================================================================
 */
 
-	font-family: Arial;
+$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE		= $_Application_Module_Administration_PlugIns_FIND_DIRECTORY_UPLOAD_PLUGINS_ARCHIVE_PACKAGE . basename($_FILES['AMA_PlugIns_Upload_PlugIn_Archive_Package_File_Name']['name']);
+$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_TEMPORARY	= $_POST['AMA_PlugIns_Upload_PlugIn_Temporary'];
+$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_BASENAME	= basename($_FILES['AMA_PlugIns_Upload_PlugIn_Archive_Package_File_Name']['name']);
 
 /*
  ============================================================================================================
- + Hyper-Text-Markup-Language => Color
+ + System :: Directory :: Upload :: Plug-In :: Archive :: Client-Uniform-Resource-Location
  ============================================================================================================
 */
 
-	color: #000000;
+$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_CURL_INPUT	= $_POST['AMA_PlugIns_Upload_PlugIn_CURL'];
+$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_DIRECTORY_CREATE			= $_POST['AMA_PlugIns_Upload_PlugIn_Directory_Create'];
 
 /*
  ============================================================================================================
- + Hyper-Text-Markup-Language => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-} /* [ + ] HTML */
-
-/*
- ============================================================================================================
- +
- + Document ::  Head
- +
- ============================================================================================================
-*/
-
-head {
-
-} /* [ + ] Head */
-
-/*
- ============================================================================================================
- +
- + Document :: Body
- +
+ + File :: Plug-In :: Download :: From Client-From-Uniform-Resource-Location
  ============================================================================================================
 */
 
 /*
  ============================================================================================================
- + Body => Background
+ + IF: System :: Plug-In :: File :: Download :: cURL :: Input Form Has Not Executed, Display Input Form
  ============================================================================================================
 */
 
-body {
+if (!$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_CURL_INPUT) {
+
+echo ("
+													<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
+														System :: Plug-Ins :: Upload Plug-In :: Client-URL
+													<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
+														<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;PlugIns&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"post\">
+															<TEXTAREA ROWS=\"15\" COLS=\"75\" NAME=\"AMA_PlugIns_Upload_PlugIn_CURL\">System Plug-In Archive Package File Name or Directory and File Name... Example: Camera/Camera.extension</TEXTAREA><BR><BR>
+														Current Plug-In GIT URL<BR>
+															<TEXTAREA ROWS=\"15\" COLS=\"75\">$_ACCESS_URL_GIT_REPOSITORY_PLUGINS</TEXTAREA><BR>
+															<INPUT TYPE=\"submit\" VALUE=\"Download Plug-In Package\">
+														</FORM><BR>
+");
+
+} else {
 
 /*
  ============================================================================================================
- + Body => Background => Color/Image
+ + ELSE: System :: Plug-In :: File :: Upload :: cURL :: Input Form Has Executed, Download Plug-In File
  ============================================================================================================
 */
 
-	background: #DEDEDE url(../Image/Background/Background.jpeg?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION);
+$_Application_Module_Administration_PlugIns_FIND_PLUGIN_DIRECTORY_ARCHIVE						= "./System/Plug-Ins/Archive/Source/$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_CURL_INPUT";
+$_Application_Module_Administration_PlugIns_OPEN_PLUGIN_DIRECTORY_ARCHIVE						= fopen("$_Application_Module_Administration_PlugIns_FIND_PLUGIN_DIRECTORY_ARCHIVE", "w");
+
+echo ("* Initializing Client-Uniform-Resource-Location Functions... Wait.<BR>");
+
+$_Application_Module_Administration_PlugIns_cURL_Initialize_Selected							= curl_init();
+
+echo ("* Done<BR><BR>");
+
+echo ("* Plug-In Application Message: Reading Requested System Plug-In File From Configured GIT Repository... Wait.<BR>");
+
+curl_setopt($_Application_Module_Administration_PlugIns_cURL_Initialize_Selected, CURLOPT_URL, "$_ACCESS_URL_GIT_REPOSITORY_PLUGINS/$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_CURL_INPUT");
+curl_setopt($_Application_Module_Administration_PlugIns_cURL_Initialize_Selected, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($_Application_Module_Administration_PlugIns_cURL_Initialize_Selected, CURLOPT_RETURNTRANSFER, 1);
+
+echo ("* Done<BR><BR>");
+
+echo ("* Plug-In Application Message: Downloading Requested System Plug-In Archive File... Wait.<BR>");
+
+$_Application_Module_Administration_PlugIns_cURL_Download_Data_Selected							= curl_exec($_Application_Module_Administration_PlugIns_cURL_Initialize_Selected);
+
+curl_close($_Application_Module_Administration_PlugIns_cURL_Initialize_Selected);
+
+echo ("<A HREF=\"$_ACCESS_URL_GIT_REPOSITORY_PLUGINS/$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_CURL_INPUT\" TITLE=\":: Open & Display :: The Master GIT Repository :: Requested System Plug-In File ::\" TARGET=\"_NEW\">$_ACCESS_URL_GIT_REPOSITORY_PLUGINS/$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_CURL_INPUT</A> ... Wait.<BR>");
+
+echo ("* Done.<BR><BR>");
+
+echo ("* Plug-In Application Message: Writing Requested System Plug-In File To Archive Directory :<I>$_Application_Module_Administration_PlugIns_FIND_PLUGIN_DIRECTORY_ARCHIVE</I>... Wait.<BR>");
+
+fwrite("$_Application_Module_Administration_PlugIns_OPEN_PLUGIN_DIRECTORY_ARCHIVE", "$_Application_Module_Administration_PlugIns_cURL_Download_Data_Selected");
+
+echo ("* Done. Exiting.<BR><BR>");
+
+} // [ + ] IF: CURL
 
 /*
  ============================================================================================================
- + Body => Background => Repeat
+ + IF: System :: Plug-In :: File :: Upload :: Input Form Has Not Executed, Display Input Form
  ============================================================================================================
 */
 
-	background-size: cover;
+if (!$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_TEMPORARY) {
+
+echo ("
+													<HR ALIGN=\"LEFT\" WIDTH=\"25%\">System :: Plug-Ins :: Upload Plug-In :: Archive Package File<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
+														<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;PlugIns&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"post\" ENCTYPE=\"multipart/form-data\">
+																<INPUT TYPE=\"hidden\" NAME=\"AMA_PlugIns_Upload_PlugIn_Temporary\" VALUE=\"1\">
+															This Plug-In Archive Package File Must Have a File Extension of: <I>.zip</I> Which Is Case-Sensitive<BR>
+																<INPUT TYPE=\"file\" NAME=\"AMA_PlugIns_Upload_PlugIn_Archive_Package_File_Name\"><BR>
+																<INPUT TYPE=\"submit\" VALUE=\"Upload Plug-In Package\">
+														</FORM><BR><BR>
+");
+
+} else {
 
 /*
  ============================================================================================================
- + Body => Background => Repeat
+ + ELSE: System :: Plug-In :: File :: Upload :: Input Form Has Executed, Upload Plug-In File
  ============================================================================================================
 */
-
-	background-repeat: no-repeat;
 
 /*
  ============================================================================================================
- + Body => Background => Attachment
+ + IF: File Exists: Uploaded :: Plug-In File :: File Name, HALT Uploaded File Operation
  ============================================================================================================
 */
 
-	background-attachment: fixed;
+if (file_exists("./System/Plug-Ins/Archive/Package/$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE_BASENAME")) {
 
-} /* [ + ] Body */
+													echo ($_Application_Module_Administration_Message_PlugIns_UPLOAD_HALTED);
+
+} else {
 
 /*
  ============================================================================================================
- +
- + Document Table, TR
- +
+ + IF: Upload :: File :: Plug-In File :: Move :: Directory :: Plug-In File Archive Directory
  ============================================================================================================
 */
 
-table, tr {
+if (move_uploaded_file($_FILES['AMA_PlugIns_Upload_PlugIn_Archive_Package_File_Name']['tmp_name'], $_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_FILE_ARCHIVE_PACKAGE)) {
 
-/*
- ============================================================================================================
- + Table, TR => Font Size
- ============================================================================================================
-*/
+													echo ($_Application_Module_Administration_Message_PlugIns_UPLOAD_SUCCESSFUL);
 
-	font-size: 11px;
+} else {
 
-/*
- ============================================================================================================
- + Table, TR => Font Family
- ============================================================================================================
-*/
+													echo ($_Message_ERROR_ACTION_UNIVERSAL);
 
-	font-family: Arial;
+} // [ + ] IF: File Exists: Uploaded Plug-In :: File :: Archive Package File :: HALT Upload
 
-/*
- ============================================================================================================
- + Table, TR => Font Color
- ============================================================================================================
-*/
+} // [ + ] IF: Upload :: Plug-In :: File :: Archive Package File
 
-	color: #000000;
-
-} /* [ + ] Table, TR */
-
-/*
- ============================================================================================================
- +
- + Document :: Body :: Table Data Cell
- +
- ============================================================================================================
-*/
-
-td {
-
-/*
- ============================================================================================================
- + Table Data Cell => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Table Data Cell => Font Family
- ============================================================================================================
-*/
-
-	font-family: Arial;
-
-/*
- ============================================================================================================
- + Table Data Cell => Font Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-} /* [ + ] TD */
+} // [ + ] IF: Upload :: Plug-In :: File :: Archive Package File :: Input Form Variables :: HAVE NOT Executed
 
 /*
  ============================================================================================================
  +
- + Document :: Body :: Table Data Cell
+ + Create :: Directory :: Plug-In
  +
  ============================================================================================================
 */
 
-/*
- ============================================================================================================
- + Table Data Cell => Application Panels :: Background Images
- ============================================================================================================
-*/
+if (!$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_DIRECTORY_CREATE) {
 
-td.MI2 { background-image: url('../Image/Application/2.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.MI4 { background-image: url('../Image/Application/4.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.MI5 { background-image: url('../Image/Application/5.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.MI6 { background-image: url('../Image/Application/6.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.MI8 { background-image: url('../Image/Application/8.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.MI9 { background-image: url('../Image/Application/9.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
+echo ("
+													<HR ALIGN=\"LEFT\" WIDTH=\"25%\">System :: Plug-Ins :: Upload Plug-In :: Create Directory<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
+														<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;PlugIns&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"post\">
+															The Plug-In Directory Is Case-Sensitive<BR>
+																<INPUT TYPE=\"text\" NAME=\"AMA_PlugIns_Upload_PlugIn_Directory_Create\"><BR>
+																<INPUT TYPE=\"submit\" VALUE=\"Create Plug-In Directory\">
+														</FORM><BR>
+");
 
-/*
- ============================================================================================================
- + Table Data Cell => Application Modules :: Background Images
- ============================================================================================================
-*/
+} else {
 
-td.BI2 { background-image: url('../Image/Panel/2.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.BI4 { background-image: url('../Image/Panel/4.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.BI5 { background-image: url('../Image/Panel/5.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.BI6 { background-image: url('../Image/Panel/6.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.BI8 { background-image: url('../Image/Panel/8.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
-td.BI9 { background-image: url('../Image/Panel/9.png?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION'); opacity: 0.9; filter: alpha(opacity=30); }
+if (file_exists("./System/Plug-Ins/Archive/Source/$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_DIRECTORY_CREATE/index.php")) {
 
-/*
- ============================================================================================================
- +
- + Document :: Body :: Buttons
- +
- ============================================================================================================
-*/
+													echo ("* The Plug-In Directory: <I>$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_DIRECTORY_CREATE</I> Cannot Be Created Because It Already Exists.<BR><BR>");
 
-button {
+} else {
 
-/*
- ============================================================================================================
- + Background Color
- ============================================================================================================
-*/
+													echo ("* Making The Plug-In Directory: <I>$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_DIRECTORY_CREATE</I>... Wait.<BR>");
 
-	background-color: #DEDEDE;
+mkdir("./System/Plug-Ins/Archive/Source/$_Application_Module_Administration_PlugIns_POST_UPLOAD_PLUGIN_DIRECTORY_CREATE");
 
-/*
- ============================================================================================================
- + Border
- ============================================================================================================
-*/
+													echo ("* Done.<BR><BR>");
 
-	border: none;
+} // [ + ] IF: Internal Application :: Plug-Ins :: Directory :: Create :: Archive :: Source :: Directory Exists
 
-/*
- ============================================================================================================
- + Color
- ============================================================================================================
-*/
-
-	color: white;
-
-/*
- ============================================================================================================
- + Padding
- ============================================================================================================
-*/
-
-	padding: 10px;
-
-/*
- ============================================================================================================
- + Text Alignment
- ============================================================================================================
-*/
-
-	text-align: center;
-
-/*
- ============================================================================================================
- + Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: none;
-
-/*
- ============================================================================================================
- + Display
- ============================================================================================================
-*/
-
-	display: inline-block;
-
-/*
- ============================================================================================================
- + Font Size
- ============================================================================================================
-*/
-
-	font-size: 8px;
-
-/*
- ============================================================================================================
- + Font Family
- ============================================================================================================
-*/
-
-	font-family: Arial;
-
-} /* [ + ] Button
+} // [ + ] IF: Internal Application :: Plug-Ins :: Directory :: Create :: Archive :: Source
 
 /*
  ============================================================================================================
  +
- + Input, TextArea, Select, Option
+ + Read :: Directory :: Plug-Ins Archive Directory
  +
  ============================================================================================================
 */
 
-input, textarea, select, option {
+													echo ("<HR ALIGN=\"LEFT\" WIDTH=\"25%\">System :: Plug-Ins :: Existing Plug-In Archive Packages<HR ALIGN=\"LEFT\" WIDTH=\"25%\"><BR><BR>");
 
 /*
  ============================================================================================================
- + Input, TextArea, Select, Option => Font Family
+ + WHILE: Reading :: Directory :: Plug-Ins :: Archive Directory
  ============================================================================================================
 */
 
-	font-family: Arial;
+while (($_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS = readdir($_Application_Module_Administration_PlugIns_OPEN_DIRECTORY_UPLOAD_PLUGINS_ARCHIVE_PACKAGE))) {
 
 /*
  ============================================================================================================
- + Input, TextArea, Select, Option => Font Weight
+ + IF: Stop :: Exploit :: Local-File-Inclusion and Remote-File-Inclusion
  ============================================================================================================
 */
 
-	font-weight: bold;
+if ($_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS == "." || $_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS == ".." || $_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS == "index.php") {
+/**
+ * Do Nothing
+**/
+} else {
 
-/*
- ============================================================================================================
- + Input, TextArea, Select, Option => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Input, TextArea, Select, Option => Font Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + Input, TextArea, Select, Option => Background Color
- ============================================================================================================
-*/
-
-	background: #44444;
-
-/*
- ============================================================================================================
- + Input, TextArea, Select, Option => Border
- ============================================================================================================
-*/
-
-	border: 1px solid #003C69;
-
-} /* [ + ] Input, TextArea, Select, Option */
+echo ("
+System :: Plug-In :: Archive :: File :: <I>$_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS</I>
+<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
+Archive File :: Name: <I>$_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS</I><BR>
+Archive File :: Timestamp :: Upload :: <I></I><BR>
+<A HREF=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;PlugIns&amp;Delete&#61;$_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS\" TITLE=\":: Delete :: The Selected Plug-In Archive File: $_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS ::\">Delete This Plug-In Archive</A><BR><BR>");
 
 /*
  ============================================================================================================
  +
- + Link, Visited Link, Active Link, Hover-Over Link
+ + [ @ ] IF: Internal Application: Plug-Ins :: Delete :: Selected Plug-In
  +
  ============================================================================================================
 */
 
-/*
- ============================================================================================================
- + Link
- ============================================================================================================
-*/
-
-a:link {
-
-/*
- ============================================================================================================
- + Link => Link Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + Link => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Link => Font Weight
- ============================================================================================================
-*/
-
-	font-weight: bold;
-
-/*
- ============================================================================================================
- + Link => Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: none;
-
-} /* [ + ] Link */
-
-/*
- ============================================================================================================
- + Link Visited
- ============================================================================================================
-*/
-
-a:visited {
-
-/*
- ============================================================================================================
- + Link Visited => Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + Link Visited => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Link Visited => Font Weight
- ============================================================================================================
-*/
-
-	font-weight: bold;
-
-/*
- ============================================================================================================
- + Link Visited => Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: none;
-
-} /* [ + ] Link => Visited */
-
-/*
- ============================================================================================================
- + Link Active
- ============================================================================================================
-*/
-
-a:active {
-
-/*
- ============================================================================================================
- + Link Active => Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + Link Active => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Link Active => Font Weight
- ============================================================================================================
-*/
-
-	font-weight: bold;
-
-/*
- ============================================================================================================
- + Link Active => Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: none;
-
-} /* [ + ] Link => Active */
-
-/*
- ============================================================================================================
- + Hover Over Link
- ============================================================================================================
-*/
-
-a:hover {
-
-/*
- ============================================================================================================
- + Link Hover => Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + Link Hover => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Link Hover => Font Weight
- ============================================================================================================
-*/
-
-	font-weight: bold;
-
-/*
- ============================================================================================================
- + Link Hover => Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: underline;
-
-} /* [ + ] Link => Hover Over */
-
-/*
- ============================================================================================================
- +
- + Font, Center, H1 Alignment
- +
- ============================================================================================================
-*/
-
-/*
- ============================================================================================================
- + Font
- ============================================================================================================
-*/
-
-font {
-/*
- ============================================================================================================
- + Font => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Font => Font Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + Font => Font Family
- ============================================================================================================
-*/
-
-	font-family: Arial;
-
-/*
- ============================================================================================================
- + Font => Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: none;
-
-} /* [ + ] Font */
-
-/*
- ============================================================================================================
- + Center
- ============================================================================================================
-*/
-
-center {
-
-/*
- ============================================================================================================
- + Center => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + Center => Font Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + Center => Font Family
- ============================================================================================================
-*/
-
-	font-family: Arial;
-
-/*
- ============================================================================================================
- + Center => Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: none;
-
-} /* [ + ] Center */
-
-/*
- ============================================================================================================
- + H1 Alignment
- ============================================================================================================
-*/
-
-h1 {
-
-/*
- ============================================================================================================
- + H1 Alignment => Font Size
- ============================================================================================================
-*/
-
-	font-size: 11px;
-
-/*
- ============================================================================================================
- + H1 Alignment => Font Color
- ============================================================================================================
-*/
-
-	color: #000000;
-
-/*
- ============================================================================================================
- + H1 Alignment => Font Family
- ============================================================================================================
-*/
-
-	font-family: Arial;
-
-/*
- ============================================================================================================
- + H1 Alignment => Text Decoration
- ============================================================================================================
-*/
-
-	text-decoration: none;
+if ($_GET["Delete"] == "$_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS") {
 
-} /* [ + ] H1 Alignment */
+unlink("./System/Plug-Ins/Archive/Package/$_Application_Module_Administration_PlugIns_READ_DIRECTORY_UPLOAD_PLUGINS");
 
-/*
- ============================================================================================================
- +
- + BR Seperator
- +
- ============================================================================================================
-*/
-
-br { }
-
-/*
- ============================================================================================================
- +
- + Images
- +
- ============================================================================================================
-*/
-
-/*
- ============================================================================================================
- + Image
- ============================================================================================================
-*/
-
-img {
-
-/*
- ============================================================================================================
- + Image => Border
- ============================================================================================================
-*/
-
-	border: 0px;
-
-/*
- ============================================================================================================
- + Image => Opacity
- ============================================================================================================
-*/
-
-	opacity: 0.9;
-
-/*
- ============================================================================================================
- + Image => Filter
- ============================================================================================================
-*/
-
-	filter: alpha(opacity=30);
-
-} /* [ + ] Images */
-
-/*
- ============================================================================================================
- + Image Hover Over
- ============================================================================================================
-*/
-
-img:hover {
-
-/*
- ============================================================================================================
- + Image Hover => Border
- ============================================================================================================
-*/
-
-	border: 0px;
-
-/*
- ============================================================================================================
- + Image :: Hover => Opacity
- ============================================================================================================
-*/
-
-	opacity: 1.0;
-
-/*
- ============================================================================================================
- + Image :: Hover => Filter
- ============================================================================================================
-*/
-
-	filter: alpha(opacity=100);
-
-} /* [ + ] Hover Over Images */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Register => Image => Account Recovery Pictographs
- ============================================================================================================
-*/
-
-img.AMMRegisterPictograph {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Register :: Image :: Account Recovery Pictographs */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: News Article Entries => Image => Author
- ============================================================================================================
-*/
-
-img.AMMNewsImage {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: News Article Entries :: Image :: Author */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Article Entries => Image => Author
- ============================================================================================================
-*/
-
-img.AMMArticlesImage {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Article Entries :: Image :: Author */
-/*
- ============================================================================================================
- + Image :: Application Module :: Legal => Theme => Image => Author
- ============================================================================================================
-*/
-
-img.LegalImageAuthor {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Legal :: Theme :: Image :: Author */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Messenger => Registered Member Account Profile Picture
- ============================================================================================================
-*/
-
-img.MessengerImageMemberProfile {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Messenger :: Registered Member Account Profile Picture */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Messenger => Message With Image
- ============================================================================================================
-*/
-
-img.MessengerImageMessage {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Messenger :: Message With Image */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: List :: Images => Avatars
- ============================================================================================================
-*/
-
-img.ListImageAvatar {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: List :: Images :: Avatars */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Profile => Streams => Stream Image
- ============================================================================================================
-*/
-
-img.StreamImageMessage {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Profile => Streams :: Streams :: Stream Image */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Active Registered Member Accounts :: Registered Member Account Profile Picture
- ============================================================================================================
-*/
-
-img.ActiveMemberAccounts {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Active Registered Member Accounts :: Registered Member Account Profile Picture */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Registered Member Account Directory => Registered Member Account Profile Picture
- ============================================================================================================
-*/
-
-img.MemberDirectory {
-
-  border-radius: 20%;
-
-} /* [ + ] Image :: Application Module :: Registered Member Accounts Directory :: Registered Member Account Profile Picture */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Registered Member Account => Member Panel
- ============================================================================================================
-*/
-
-img.MemberPanel {
-
-  border-radius: 10%;
-
-} /* [ + ] Image :: Application Module :: Registered Member Account :: Member Panel */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Registered Member Account Profile => Registered Member Account Profile Picture
- ============================================================================================================
-*/
-
-img.MemberProfile {
-
-  border-radius: 10%;
-
-} /* [ + ] Image :: Application Module :: Registered Member Account Profile :: Registered Member Account Profile Picture */
-
-/*
- ============================================================================================================
- + Image :: Application Module :: Search => Registered Member Account :: Registered Member Account Profile Picture
- ============================================================================================================
-*/
-
-img.SearchMemberProfile {
-
-  border-radius: 10%;
-
-} /* [ + ] Image :: Application Module :: Search :: Registered Member Account :: Registered Member Account Profile Picture */
-
-/*
- ============================================================================================================
- + Image :: Forum :: Message :: Author
- ============================================================================================================
-*/
-
-img.AMAForumTMAuthor {
-
-  border-radius: 10%;
-
-} /* [ + ] Image :: Forum :: Topic :: Mesage :: Author */
-
-/*
- ============================================================================================================
- + Image :: Application Panel :: Project_Badges => Project Badges
- ============================================================================================================
-*/
-
-img.PanelProjectBadge {
-
-  border-radius: 10%;
-
-} /* [ + ] Image :: Application Module :: Search :: Registered Member Account :: Registered Member Account Profile Picture */
-
-/*
- ============================================================================================================
- + Image :: Theme :: Banner
- ============================================================================================================
-*/
-
-img.ThemeBanner {
-
-  border-radius: 5%;
-
-} /* [ + ] Image :: Theme :: Banner */
-
-/*
- ============================================================================================================
- + Image :: Registered Member Account :: Control Panel :: Icons
- ============================================================================================================
-*/
-
-img.AMMControlPanel {
-
-  border-radius: 10%;
-
-} /* [ + ] Image :: Registered Member Account :: Control Panel :: Icons */
-
-/*
- ============================================================================================================
- + Image :: Administration Account :: Control Panel :: Icons
- ============================================================================================================
-*/
-
-img.AMAControlPanel {
-
-  border-radius: 10%;
-
-} /* [ + ] Image :: Registered Member Account :: Control Panel :: Icons */
-
-/*
- ============================================================================================================
- +
- + HR Seperator
- +
- ============================================================================================================
-*/
-
-hr {
-
-/*
- ============================================================================================================
- + HR Seperator => Color
- ============================================================================================================
-*/
+													echo ("This Plug-In Archive File Was Deleted Successfully.<BR><BR>");
 
-	color: #000000;
+} // [ + ] IF: Internal Application: Plug-Ins :: Delete :: Selected Plug-In
 
-/*
- ============================================================================================================
- + HR Seperator => Font Weight
- ============================================================================================================
-*/
+} // [ + ] IF: STOP: Exploit :: Remote-File-Inclusion AND Local-File-Inclusion
 
-	font-weight: bold;
+} // [ + ] WHILE: Reading :: Directory :: Plug-Ins
 
 /*
  ============================================================================================================
- + HR Seperator => Border Color
+ + Close :: Directory :: System => Plug-Ins => Archive
  ============================================================================================================
 */
-
-	border: 1px solid #000000;
 
-} /* [ + ] HR */
+closedir($_Application_Module_Administration_PlugIns_OPEN_DIRECTORY_UPLOAD_PLUGINS_ARCHIVE_PACKAGE);
+?>
